@@ -4,10 +4,9 @@ from django.core.urlresolvers import reverse
 
 
 def index(request):
-    uri = reverse('rango:about')
-    return HttpResponse("Rango says Hi! <a href='" + uri + "'>About</a>")
+    context_dict = {'boldmessage': 'I am bold'}
+    return render(request, 'rango/index.html', context_dict)
 
 
 def about(request):
-    uri = reverse('rango:index')
-    return HttpResponse("About page <a href='" + uri + "'>Home</a>")
+    return render(request, 'rango/about.html', {})
